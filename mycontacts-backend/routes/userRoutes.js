@@ -3,10 +3,14 @@ const { registerUser, loginUser, currentUser } = require("../controllers/userCon
 
 const router = express.Router();
 
+// router.route("/register").post(registerUser);
+// router.route('/login').post(loginUser);
+// router.route('/current').get(currentUser);
 
-router.post("/register",registerUser);
 
-router.post("/login",loginUser);
+router.post("/register", registerUser);
+
+router.post("/login", loginUser);
 
 router.get("/current",currentUser);
 

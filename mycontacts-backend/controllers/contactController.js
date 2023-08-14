@@ -1,9 +1,6 @@
 
-
-
 const asyncHandler =require("express-async-handler");
 const Contact = require("../models/contactModel");
-
 
 //desc : get all contacts
 //@route GET /api/contacts

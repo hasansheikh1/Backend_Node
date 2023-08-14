@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const userSchema = mongoose.Schema({
 
 
@@ -11,7 +10,7 @@ username:{
 email:{
     type:String,
     required:[true,"please add the user email address"],
-    unique: [true, "Email is already taken!"]
+    unique: [true, "Email is already taken!"],
 },
 
 password:{
