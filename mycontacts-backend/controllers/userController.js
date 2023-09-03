@@ -67,15 +67,34 @@ const loginUser = asyncHandler(async (req,res)=>{
 
     if(user && (await bcrypt.compare(password,user.password))){
 
+        const accessToken=jwt.sign({
+                user:{
+                    username:user.username,
+                    email:user.email,
+                    id:user.id
+                },
+            
+        },process.env.ACCESS_TOKEN_SECRET,
+        {expiresIn:"1m"}
+        )
+
         res.status(200).json({
-            accessToken
+            accessToken:accessToken,
+            message:"Logged in successfully"
+
+
         });
     }
-
-
+    else{
+        res.status(401).json({
+            message:"some error in logging in "
+        })
+    }
 
     res.json({message: "Login User"})
 });
+
+
 const currentUser = asyncHandler(async (req,res)=>{
     res.json({message: "Current User"})
 });
